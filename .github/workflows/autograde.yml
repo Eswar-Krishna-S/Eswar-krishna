@@ -1,0 +1,88 @@
+name: Auto-Grade Assignment
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Q1-Q2 Von Mises & Projectile (20 points)
+      run: |
+        echo "================================================"
+        echo "Q1-Q2: Von Mises & Projectile (20 points)"
+        echo "================================================"
+        pytest test_mechanical.py::TestQ1VonMisesStress -v --tb=short
+        pytest test_mechanical.py::TestQ2ProjectileTrajectory -v --tb=short
+        echo "PASSED: 20/20 points"
+        
+    - name: Q3-Q4 Forces & Thermal (20 points)
+      run: |
+        echo "================================================"
+        echo "Q3-Q4: Forces & Thermal (20 points)"
+        echo "================================================"
+        pytest test_mechanical.py::TestQ3ForceResultant -v --tb=short
+        pytest test_mechanical.py::TestQ4ThermalExpansion -v --tb=short
+        echo "PASSED: 20/20 points"
+        
+    - name: Q5-Q6 Angular & Beam (20 points)
+      run: |
+        echo "================================================"
+        echo "Q5-Q6: Angular & Beam (20 points)"
+        echo "================================================"
+        pytest test_mechanical.py::TestQ5AngularVelocity -v --tb=short
+        pytest test_mechanical.py::TestQ6BeamDeflection -v --tb=short
+        echo "PASSED: 20/20 points"
+        
+    - name: Q7-Q8 Velocity & Power (20 points)
+      run: |
+        echo "================================================"
+        echo "Q7-Q8: Velocity & Power (20 points)"
+        echo "================================================"
+        pytest test_mechanical.py::TestQ7VelocityComponents -v --tb=short
+        pytest test_mechanical.py::TestQ8PowerTorque -v --tb=short
+        echo "PASSED: 20/20 points"
+        
+    - name: Q9-Q10 Spring & Damping (20 points)
+      run: |
+        echo "================================================"
+        echo "Q9-Q10: Spring & Damping (20 points)"
+        echo "================================================"
+        pytest test_mechanical.py::TestQ9SpringSystem -v --tb=short
+        pytest test_mechanical.py::TestQ10DampedOscillation -v --tb=short
+        echo "PASSED: 20/20 points"
+        
+    - name: Final Grade Summary
+      if: success()
+      run: |
+        echo ""
+        echo "================================================"
+        echo "           ALL TESTS PASSED!"
+        echo "================================================"
+        echo ""
+        echo "Breakdown:"
+        echo "  Q1-Q2: Von Mises & Projectile    20/20"
+        echo "  Q3-Q4: Forces & Thermal          20/20"
+        echo "  Q5-Q6: Angular & Beam            20/20"
+        echo "  Q7-Q8: Velocity & Power          20/20"
+        echo "  Q9-Q10: Spring & Damping         20/20"
+        echo "  ----------------------------------------"
+        echo "  TOTAL SCORE:                     100/100"
+        echo ""
