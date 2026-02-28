@@ -2,8 +2,13 @@
 NumPy Universal Functions - Mechanical Engineering Problems
 Complete all functions using NumPy ufuncs (no loops!)
 
+<<<<<<< HEAD
 Student Name: Eswar Krishna
 Student ID: 715523114014
+=======
+Student Name: ___________________
+Student ID: ___________________
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 """
 
 import numpy as np
@@ -32,10 +37,15 @@ def von_mises_stress(sigma1, sigma2):
     >>> von_mises_stress(np.array([100, 200]), np.array([50, 100]))
     array([ 86.60254038, 173.20508076])
     """
+<<<<<<< HEAD
     # Use NumPy ufuncs for elementwise operations
     sigma1 = np.asarray(sigma1)
     sigma2 = np.asarray(sigma2)
     return np.sqrt(sigma1**2 - sigma1 * sigma2 + sigma2**2)
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def projectile_trajectory(v0, angles, t):
@@ -67,6 +77,7 @@ def projectile_trajectory(v0, angles, t):
     (2, 3)
     """
     g = 9.81  # m/s^2
+<<<<<<< HEAD
     angles = np.asarray(angles)
     t = np.asarray(t)
     theta = np.deg2rad(angles)
@@ -74,6 +85,11 @@ def projectile_trajectory(v0, angles, t):
     x = v0 * np.cos(theta)[:, None] * t[None, :]
     y = v0 * np.sin(theta)[:, None] * t[None, :] - 0.5 * g * (t[None, :] ** 2)
     return x, y
+=======
+    # TODO: Implement using NumPy ufuncs
+    # Hint: Convert angles to radians, use broadcasting
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def force_resultant(fx, fy):
@@ -98,11 +114,16 @@ def force_resultant(fx, fy):
     >>> mag
     array([5., 5.])
     """
+<<<<<<< HEAD
     fx = np.asarray(fx)
     fy = np.asarray(fy)
     magnitude = np.hypot(fx, fy)
     angle_degrees = np.degrees(np.arctan2(fy, fx))
     return magnitude, angle_degrees
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def thermal_expansion(L0, alpha, delta_T):
@@ -131,12 +152,17 @@ def thermal_expansion(L0, alpha, delta_T):
     >>> dL
     array([1.2])
     """
+<<<<<<< HEAD
     L0 = np.asarray(L0)
     alpha = np.asarray(alpha)
     delta_T = np.asarray(delta_T)
     delta_L = alpha * L0 * delta_T
     L_final = L0 + delta_L
     return delta_L, L_final
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def angular_velocity_conversion(rpm):
@@ -164,10 +190,15 @@ def angular_velocity_conversion(rpm):
     array([ 6.28318531, 12.56637061])
     """
     t = 5  # seconds
+<<<<<<< HEAD
     rpm = np.asarray(rpm)
     omega = rpm * (2 * np.pi / 60.0)
     theta = omega * t
     return omega, theta
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def beam_deflection(x, L, w, E, I):
@@ -200,10 +231,15 @@ def beam_deflection(x, L, w, E, I):
     >>> y[0]
     0.0
     """
+<<<<<<< HEAD
     x = np.asarray(x)
     # y = (w/(24*E*I)) * x * (L^3 - 2*L*x^2 + x^3)
     coef = w / (24.0 * E * I)
     return coef * x * (L**3 - 2.0 * L * x**2 + x**3)
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def velocity_components(velocities, angles):
@@ -228,11 +264,16 @@ def velocity_components(velocities, angles):
     >>> vx
     array([ 8.66025404, 14.14213562])
     """
+<<<<<<< HEAD
     velocities = np.asarray(velocities)
     angles = np.deg2rad(np.asarray(angles))
     vx = velocities * np.cos(angles)
     vy = velocities * np.sin(angles)
     return vx, vy
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def power_to_torque(power, omega):
@@ -259,9 +300,14 @@ def power_to_torque(power, omega):
     >>> torque
     array([10., 20.])
     """
+<<<<<<< HEAD
     power = np.asarray(power)
     omega = np.asarray(omega)
     return power / omega
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def spring_system(k, x):
@@ -290,11 +336,16 @@ def spring_system(k, x):
     >>> F
     array([-100., -400.])
     """
+<<<<<<< HEAD
     k = np.asarray(k)
     x = np.asarray(x)
     force = -k * x
     potential = 0.5 * k * x**2
     return force, potential
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
 
 
 def damped_oscillation(A, b, omega, t):
@@ -325,5 +376,10 @@ def damped_oscillation(A, b, omega, t):
     >>> x[0]
     1.0
     """
+<<<<<<< HEAD
     t = np.asarray(t)
     return A * np.exp(-b * t) * np.cos(omega * t)
+=======
+    # TODO: Implement using NumPy ufuncs
+    pass
+>>>>>>> 8283106851bd8d20121ab098d4d788ab1311aa1e
